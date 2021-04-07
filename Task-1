@@ -1,9 +1,18 @@
+#Predict the percentage of an student based on the no. of study hours
+
 regression <- read.csv("C:\\Users\\suhail alam\\Desktop\\Sparks foundation\\Data1.csv", header = TRUE)
 attach(regression)
+summary(regression)
+
+#Linear Regression Analysis
 model <- lm(Scores ~ Hours, data = regression)
 summary(model)
-study_hours <- data.frame(Hours = c(9.25))
+
+#Create vector
+study_hours <- data.frame(Hours = c(9.25,10,12,15))
 predict(model, newdata = study_hours)
+
 #we can also predict the score by putting raw values also.
 Predicted_score <- 2.4837 + (9.7758*9.25)
 Predicted_score
+
